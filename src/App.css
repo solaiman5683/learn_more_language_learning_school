@@ -1,4 +1,7 @@
 
-.active{
+.nav-link.active{
   font-size: 1.1em;
+}
+.nav-link{
+  font-weight: bold;
 }
