@@ -1,21 +1,18 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { Row } from 'react-bootstrap';
+import useTeachers from '../../Hooks/useTeachers';
+import Teacher from '../Teacher/Teacher';
 
 const Teachers = () => {
-    const [teachers, setTeachers] = useState([])
-    useEffect(() => {
-        fetch('https://raw.githubusercontent.com/solaiman5683/assignment9-json/main/teacher.json')
-            .then(res => res.json())
-            .then(data => setTeachers(data.results));
-    }, [])
-    console.log(teachers)
+    const teachers = useTeachers()
     return (
-        <div>
-            <h1 className="text-center p-5">
-                This is the Teachers page
+        <div className='container mb-5 pb-5'>
+            <h1 className="text-center p-4">
                 Total Teachers: {teachers.length}
             </h1>
+            <Row xs={1} md={2} lg={3} className="g-4">
+                {teachers.map(teacher => <Teacher teacher={teacher} key={teacher.cell}></Teacher>)}
+            </Row>
         </div>
     );
 };

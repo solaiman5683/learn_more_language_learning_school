@@ -7,7 +7,7 @@ import useCourses from '../../Hooks/useCourse';
 const Courses = () => {
     const [coursesData] = useCourses();
     return (
-        <div className="container p-5">
+        <div className="container p-4 mb-5">
             <h1 className='text-center'>All Courses</h1>
             <hr />
             <Row xs={1} md={3} className="g-4">
